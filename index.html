@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Loop &amp; Bloom — Handmade Crochet, Stitched With a Little More Love</title>
+<meta name="description" content="Loop & Bloom makes handmade crochet flowers, plushies, keychains, bags, and custom gifts — each piece stitched by hand, one loop at a time.">
+<meta property="og:title" content="Loop & Bloom — Handmade Crochet">
+<meta property="og:description" content="Thoughtfully crocheted pieces made slowly, lovingly, and just for you.">
+<meta property="og:type" content="website">
+<meta property="og:image" content="https://images.unsplash.com/photo-1708000077538-c7dfba8037d6?auto=format&fit=crop&w=1200&q=80">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🧶</text></svg>">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<a href="#main" class="skip-link">Skip to content</a>
+
+<!-- ============ HEADER ============ -->
+<header class="site-header" id="siteHeader">
+  <div class="container nav-wrap">
+    <a href="index.html" class="logo">Loop <span>&amp;</span> Bloom</a>
+    <nav class="nav-links" aria-label="Primary">
+      <a href="index.html">Home</a>
+      <a href="shop.html">Shop</a>
+      <a href="about.html">About</a>
+      <a href="custom-orders.html">Custom Orders</a>
+      <a href="gallery.html">Gallery</a>
+      <a href="journal.html">Journal</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+    <div class="nav-actions">
+      <button class="icon-btn" id="searchToggleBtn" aria-label="Toggle search">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3"/></svg>
+      </button>
+      <a href="gallery.html" class="icon-btn" aria-label="Wishlist" style="position:relative;">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 21s-7.5-4.6-10-9.3C.5 8 2 4 6 3.6c2.3-.2 4 1 6 3.4 2-2.4 3.7-3.6 6-3.4 4 .4 5.5 4.4 4 8.1-2.5 4.7-10 9.3-10 9.3z"/></svg>
+        <span class="count-badge" data-wishlist-count>0</span>
+      </a>
+      <button class="icon-btn" id="cartToggleBtn" aria-label="Open cart" style="position:relative;">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M6 8h12l-1 12H7L6 8z"/><path d="M9 8V6a3 3 0 016 0v2"/></svg>
+        <span class="count-badge" data-cart-count>0</span>
+      </button>
+      <a href="shop.html" class="btn btn-primary btn-sm nav-cta">Shop the collection</a>
+      <button class="hamburger" id="hamburgerBtn" aria-label="Open menu"><span></span><span></span><span></span></button>
+    </div>
+  </div>
+  <div class="search-panel" id="searchPanel">
+    <div class="container search-panel-inner">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3"/></svg>
+      <form id="searchForm" style="flex:1;">
+        <input type="text" id="searchInput" placeholder="Search bouquets, plushies, keychains…" aria-label="Search products">
+      </form>
+    </div>
+  </div>
+</header>
+
+<!-- ============ MOBILE NAV ============ -->
+<div class="mobile-nav" id="mobileNav">
+  <div class="mobile-nav-top">
+    <span class="logo">Loop <span>&amp;</span> Bloom</span>
+    <button class="icon-btn" id="mobileNavClose" aria-label="Close menu">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M6 6l12 12M18 6L6 18"/></svg>
+    </button>
+  </div>
+  <ul class="mobile-nav-links">
+    <li><a href="index.html">Home</a></li>
+    <li><a href="shop.html">Shop</a></li>
+    <li><a href="about.html">About</a></li>
+    <li><a href="custom-orders.html">Custom Orders</a></li>
+    <li><a href="gallery.html">Gallery</a></li>
+    <li><a href="journal.html">Journal</a></li>
+    <li><a href="contact.html">Contact</a></li>
+  </ul>
+  <div class="mobile-nav-foot">
+    <a href="shop.html" class="btn btn-primary btn-block">Shop the collection</a>
+    <p style="text-align:center; color: var(--text-soft); font-size:0.85rem;">hello@loopandbloom.studio</p>
+  </div>
+</div>
+
+<!-- ============ CART DRAWER ============ -->
+<div class="overlay" id="cartOverlay"></div>
+<aside class="cart-drawer" id="cartDrawer" aria-label="Shopping cart">
+  <div class="cart-head">
+    <h3>Your bag</h3>
+    <button class="icon-btn" id="cartCloseBtn" aria-label="Close cart">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M6 6l12 12M18 6L6 18"/></svg>
+    </button>
+  </div>
+  <div class="cart-items" id="cartItems"></div>
+  <div class="cart-foot" id="cartFoot">
+    <div class="cart-subtotal"><span>Subtotal</span><span id="cartSubtotal">$0.00</span></div>
+    <a href="shop.html" class="btn btn-primary btn-block">Continue to checkout</a>
+    <p style="text-align:center; margin-top:12px; font-size:0.78rem; color:var(--text-soft);">Shipping and any taxes calculated at checkout.</p>
+  </div>
+</aside>
+
+<main id="main">
+
+  <!-- ============ HERO ============ -->
+  <section class="hero">
+    <div class="hero-media">
+      <img src="https://images.unsplash.com/photo-1708000077538-c7dfba8037d6?auto=format&fit=crop&w=1800&q=80" alt="A hand-crocheted sunflower in warm golden tones, photographed in soft natural light">
+    </div>
+    <svg class="floating-yarn" style="top:14%; left:8%; width:70px; opacity:.5;" viewBox="0 0 100 100"><circle cx="50" cy="50" r="46" fill="none" stroke="#EAD3C4" stroke-width="2" stroke-dasharray="6 8"/></svg>
+    <svg class="floating-yarn" style="top:30%; right:10%; width:40px;" viewBox="0 0 100 100"><circle cx="50" cy="50" r="30" fill="none" stroke="#F6F1E6" stroke-width="2" stroke-dasharray="4 7"/></svg>
+    <div class="container hero-content">
+      <div class="hero-eyebrow-line">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 2v20M2 12h20"/></svg>
+        <span>Loop &amp; Bloom — handmade crochet studio</span>
+      </div>
+      <h1>
+        <span class="line"><span>Made by Hand.</span></span>
+        <span class="line"><span>Made to Keep.</span></span>
+      </h1>
+      <p class="hero-sub">Thoughtfully crocheted pieces made slowly, lovingly, and just for you — from flowers that never wilt to plushies that outlast childhood.</p>
+      <div class="hero-actions">
+        <a href="shop.html" class="btn btn-primary">Shop the collection</a>
+        <a href="custom-orders.html" class="btn btn-light">Create something custom</a>
+      </div>
+    </div>
+    <div class="hero-scroll-cue"><span>SCROLL</span><span class="line-anim"></span></div>
+  </section>
+
+  <!-- ============ BRAND STATEMENT ============ -->
+  <section class="section section-cream">
+    <div class="container">
+      <div class="split reveal">
+        <div class="split-text">
+          <h2>Small stitches.<br>Big feelings.</h2>
+          <p>Every piece that leaves our studio is made individually, by one pair of hands, on one hook, one loop at a time. Nothing is molded or mass-produced — which means every daisy curls a little differently, and every plushie's ear sits at its own particular angle.</p>
+          <p>That's not a flaw we're working out. It's the part we'd never automate away — the character of the person who made it, still there in the stitches when it reaches you.</p>
+          <a href="about.html" class="btn btn-secondary">Read our story</a>
+        </div>
+        <div class="split-media">
+          <img src="https://images.unsplash.com/photo-1632649027900-389e810204e6?auto=format&fit=crop&w=1000&q=80" alt="Close-up of hands crocheting with a wooden hook and warm-toned yarn" loading="lazy">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ FEATURED COLLECTION ============ -->
+  <section class="section section-ivory" id="featured">
+    <div class="container">
+      <div class="section-head reveal">
+        <h2>Made for little moments.</h2>
+        <p>A handful of pieces our studio keeps coming back to — the ones people order once and then order again as gifts.</p>
+      </div>
+      <div class="product-grid cols-4" id="featuredGrid"></div>
+      <div style="text-align:center; margin-top:56px;" class="reveal">
+        <a href="shop.html" class="btn btn-secondary">View the full shop</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ THE CRAFT ============ -->
+  <section class="section section-cream">
+    <div class="container">
+      <div class="section-head reveal">
+        <h2>From a strand of yarn to something you'll keep.</h2>
+        <p>Four unhurried stages, repeated a little differently for every single order.</p>
+      </div>
+      <div class="craft-steps stagger">
+        <div class="craft-step">
+          <div class="craft-step-media"><img src="https://images.unsplash.com/photo-1682954100067-c4356f636c6b?auto=format&fit=crop&w=700&q=80" alt="Balls of colorful yarn arranged on a table" loading="lazy"></div>
+          <span class="craft-step-num">01</span>
+          <h3>Choose the yarn</h3>
+          <p>Every order starts with color — matched by hand against the mood, the occasion, or a photo someone sends us.</p>
+        </div>
+        <div class="craft-step">
+          <div class="craft-step-media"><img src="https://images.unsplash.com/photo-1648005539099-709d5be525fb?auto=format&fit=crop&w=700&q=80" alt="A crochet hook resting beside balls of yarn on a blanket" loading="lazy"></div>
+          <span class="craft-step-num">02</span>
+          <h3>Shape every stitch</h3>
+          <p>Rows build slowly into a shape — a petal, an ear, the curve of a bag's base — worked one loop at a time.</p>
+        </div>
+        <div class="craft-step">
+          <div class="craft-step-media"><img src="https://images.unsplash.com/photo-1682953941870-a7aedb3b2e66?auto=format&fit=crop&w=700&q=80" alt="A glass bowl of soft cotton stuffing beside a finished piece" loading="lazy"></div>
+          <span class="craft-step-num">03</span>
+          <h3>Add the little details</h3>
+          <p>Faces are embroidered, petals are sewn on, ends are woven in — the slow work that makes a piece feel finished.</p>
+        </div>
+        <div class="craft-step">
+          <div class="craft-step-media"><img src="https://images.unsplash.com/photo-1633930965364-a95fe3dbf06d?auto=format&fit=crop&w=700&q=80" alt="A cozy studio corner with a warm drink beside finished crochet pieces" loading="lazy"></div>
+          <span class="craft-step-num">04</span>
+          <h3>Finish with love</h3>
+          <p>Every piece gets a final look-over, a gentle steam, and careful packaging before it heads to its new home.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ CUSTOM ORDERS CTA ============ -->
+  <section class="section section-ivory">
+    <div class="container">
+      <div class="cta-immersive reveal">
+        <img src="https://images.unsplash.com/photo-1597736091383-084fa1b69a6a?auto=format&fit=crop&w=1600&q=80" alt="A hand holding a skein of blue and white yarn, ready to begin a custom piece" loading="lazy">
+        <div class="cta-immersive-content">
+          <h2>Have something special in mind?</h2>
+          <p>Tell us your colors, your idea, your occasion — we'll turn it into something made just for you.</p>
+          <a href="custom-orders.html" class="btn btn-primary">Start a custom order</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ TESTIMONIALS ============ -->
+  <section class="section section-cream">
+    <div class="container">
+      <div class="section-head reveal">
+        <h2>Kind words from kind homes.</h2>
+      </div>
+      <div class="testimonial-row stagger">
+        <div class="testimonial-card">
+          <p class="testimonial-quote">"I ordered a crochet bouquet for my sister and it was even more beautiful in person."</p>
+          <div class="testimonial-meta">
+            <div class="testimonial-avatar">PN</div>
+            <div><div class="testimonial-name">Priya Nair</div><div class="testimonial-loc">Austin, TX</div></div>
+          </div>
+        </div>
+        <div class="testimonial-card">
+          <p class="testimonial-quote">"Every detail felt so personal. You can genuinely see the love in the work."</p>
+          <div class="testimonial-meta">
+            <div class="testimonial-avatar">MO</div>
+            <div><div class="testimonial-name">Maren Olsen</div><div class="testimonial-loc">Portland, OR</div></div>
+          </div>
+        </div>
+      </div>
+      <p class="testimonial-note reveal">Demo testimonials shown for illustration.</p>
+    </div>
+  </section>
+
+  <!-- ============ INSTAGRAM-STYLE GALLERY ============ -->
+  <section class="section section-ivory">
+    <div class="container">
+      <div class="section-head reveal">
+        <h2>From the studio floor.</h2>
+        <p>A little of everything — finished orders, works in progress, and the occasional mess of yarn.</p>
+      </div>
+      <div class="insta-grid" id="instaGrid"></div>
+    </div>
+  </section>
+
+  <!-- ============ FINAL CTA ============ -->
+  <section class="final-cta section-cream">
+    <div class="container reveal">
+      <h2>Your next favorite piece might start with a single stitch.</h2>
+      <a href="shop.html" class="btn btn-primary">Explore the collection</a>
+    </div>
+  </section>
+
+</main>
+
+<!-- ============ FOOTER ============ -->
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div>
+        <div class="footer-logo">Loop <span>&amp;</span> Bloom</div>
+        <p class="footer-tagline">Handmade pieces, stitched with a little more love.</p>
+        <div class="footer-social" style="margin-top:22px;">
+          <a href="#" aria-label="Loop & Bloom on Instagram"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1"/></svg></a>
+          <a href="#" aria-label="Loop & Bloom on Pinterest"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="12" cy="12" r="9"/><path d="M9 17c1-3 1.5-6 1.5-8a2.5 2.5 0 015 .3c0 2-1.5 4-3.5 4"/></svg></a>
+        </div>
+      </div>
+      <div>
+        <div class="footer-heading">Explore</div>
+        <ul class="footer-links">
+          <li><a href="shop.html">Shop</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="custom-orders.html">Custom Orders</a></li>
+          <li><a href="gallery.html">Gallery</a></li>
+        </ul>
+      </div>
+      <div>
+        <div class="footer-heading">Studio</div>
+        <ul class="footer-links">
+          <li><a href="journal.html">Journal</a></li>
+          <li><a href="contact.html">Contact</a></li>
+          <li><a href="shop.html?category=Gifts">Gift Bundles</a></li>
+        </ul>
+      </div>
+      <div>
+        <div class="footer-heading">Get little notes from the studio</div>
+        <form class="newsletter-form">
+          <input type="email" placeholder="Your email address" aria-label="Email address">
+          <button type="submit" aria-label="Subscribe"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M5 12h14M13 6l6 6-6 6"/></svg></button>
+        </form>
+        <p class="footer-note">Occasional emails, unsubscribe anytime.</p>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© <span data-year></span> Loop &amp; Bloom. Handmade with love.</span>
+      <span>Patna · Shipping worldwide</span>
+    </div>
+  </div>
+</footer>
+
+<script src="js/data.js"></script>
+<script src="js/main.js"></script>
+<script src="js/shop.js"></script>
+<script>
+  document.addEventListener("DOMContentLoaded", () => {
+    const featuredGrid = document.getElementById("featuredGrid");
+    const featured = FEATURED_IDS.map(id => findProduct(id)).filter(Boolean);
+    featuredGrid.innerHTML = featured.map(productCardHTML).join("");
+    document.querySelectorAll("#featuredGrid [data-wishlist-btn]").forEach(refreshWishlistBtnState);
+
+    const instaGrid = document.getElementById("instaGrid");
+    instaGrid.innerHTML = GALLERY_ITEMS.slice(0, 8).map(item => `
+      <a href="gallery.html" class="insta-item">
+        <img src="${item.img}" alt="${item.caption}" loading="lazy">
+        <div class="insta-overlay">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1"/></svg>
+          <span>${item.caption}</span>
+        </div>
+      </a>`).join("");
+    initReveal();
+  });
+</script>
+</body>
+</html>

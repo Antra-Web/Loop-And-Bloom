@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Contact — Loop &amp; Bloom</title>
+<meta name="description" content="Get in touch with the Loop & Bloom studio for questions, orders, or collaborations.">
+<meta property="og:title" content="Contact — Loop & Bloom">
+<meta property="og:type" content="website">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🧶</text></svg>">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<a href="#main" class="skip-link">Skip to content</a>
+
+<header class="site-header" id="siteHeader">
+  <div class="container nav-wrap">
+    <a href="index.html" class="logo">Loop <span>&amp;</span> Bloom</a>
+    <nav class="nav-links" aria-label="Primary">
+      <a href="index.html">Home</a>
+      <a href="shop.html">Shop</a>
+      <a href="about.html">About</a>
+      <a href="custom-orders.html">Custom Orders</a>
+      <a href="gallery.html">Gallery</a>
+      <a href="journal.html">Journal</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+    <div class="nav-actions">
+      <button class="icon-btn" id="searchToggleBtn" aria-label="Toggle search">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3"/></svg>
+      </button>
+      <a href="gallery.html" class="icon-btn" aria-label="Wishlist" style="position:relative;">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 21s-7.5-4.6-10-9.3C.5 8 2 4 6 3.6c2.3-.2 4 1 6 3.4 2-2.4 3.7-3.6 6-3.4 4 .4 5.5 4.4 4 8.1-2.5 4.7-10 9.3-10 9.3z"/></svg>
+        <span class="count-badge" data-wishlist-count>0</span>
+      </a>
+      <button class="icon-btn" id="cartToggleBtn" aria-label="Open cart" style="position:relative;">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M6 8h12l-1 12H7L6 8z"/><path d="M9 8V6a3 3 0 016 0v2"/></svg>
+        <span class="count-badge" data-cart-count>0</span>
+      </button>
+      <a href="shop.html" class="btn btn-primary btn-sm nav-cta">Shop the collection</a>
+      <button class="hamburger" id="hamburgerBtn" aria-label="Open menu"><span></span><span></span><span></span></button>
+    </div>
+  </div>
+  <div class="search-panel" id="searchPanel">
+    <div class="container search-panel-inner">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3"/></svg>
+      <form id="searchForm" style="flex:1;">
+        <input type="text" id="searchInput" placeholder="Search bouquets, plushies, keychains…" aria-label="Search products">
+      </form>
+    </div>
+  </div>
+</header>
+
+<div class="mobile-nav" id="mobileNav">
+  <div class="mobile-nav-top">
+    <span class="logo">Loop <span>&amp;</span> Bloom</span>
+    <button class="icon-btn" id="mobileNavClose" aria-label="Close menu">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M6 6l12 12M18 6L6 18"/></svg>
+    </button>
+  </div>
+  <ul class="mobile-nav-links">
+    <li><a href="index.html">Home</a></li>
+    <li><a href="shop.html">Shop</a></li>
+    <li><a href="about.html">About</a></li>
+    <li><a href="custom-orders.html">Custom Orders</a></li>
+    <li><a href="gallery.html">Gallery</a></li>
+    <li><a href="journal.html">Journal</a></li>
+    <li><a href="contact.html">Contact</a></li>
+  </ul>
+  <div class="mobile-nav-foot">
+    <a href="shop.html" class="btn btn-primary btn-block">Shop the collection</a>
+  </div>
+</div>
+
+<div class="overlay" id="cartOverlay"></div>
+<aside class="cart-drawer" id="cartDrawer" aria-label="Shopping cart">
+  <div class="cart-head">
+    <h3>Your bag</h3>
+    <button class="icon-btn" id="cartCloseBtn" aria-label="Close cart">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M6 6l12 12M18 6L6 18"/></svg>
+    </button>
+  </div>
+  <div class="cart-items" id="cartItems"></div>
+  <div class="cart-foot" id="cartFoot">
+    <div class="cart-subtotal"><span>Subtotal</span><span id="cartSubtotal">$0.00</span></div>
+    <a href="shop.html" class="btn btn-primary btn-block">Continue to checkout</a>
+    <p style="text-align:center; margin-top:12px; font-size:0.78rem; color:var(--text-soft);">Shipping and any taxes calculated at checkout.</p>
+  </div>
+</aside>
+
+<main id="main">
+  <section class="page-hero container">
+    <div class="breadcrumb"><a href="index.html">Home</a> / Contact</div>
+    <h1 class="reveal">Let's make something lovely.</h1>
+    <p class="reveal">Questions about an order, a wholesale inquiry, or just want to say hello — we read every message ourselves.</p>
+  </section>
+
+  <section class="container" style="padding-bottom:130px; position:relative;">
+    <svg class="decorative-yarn-corner" style="top:-20px; right:0; width:110px;" viewBox="0 0 100 100"><circle cx="50" cy="50" r="46" fill="none" stroke="#EAD3C4" stroke-width="2" stroke-dasharray="6 8"/></svg>
+    <div class="contact-grid">
+      <div class="reveal">
+        <div class="contact-info-item">
+          <div class="contact-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 4h16v16H4z"/><path d="M4 6l8 7 8-7"/></svg></div>
+          <div>
+            <h4>Email</h4>
+            <a href="mailto:hello@loopandbloom.studio">hello@loopandbloom.studio</a>
+          </div>
+        </div>
+        <div class="contact-info-item">
+          <div class="contact-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1"/></svg></div>
+          <div>
+            <h4>Instagram</h4>
+            <a href="#">@loopandbloom.studio</a>
+          </div>
+        </div>
+        <div class="contact-info-item">
+          <div class="contact-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 3"/></svg></div>
+          <div>
+            <h4>Studio hours</h4>
+            <p>Monday–Friday, 10am–5pm IST. Replies may take a little longer over weekends.</p>
+          </div>
+        </div>
+        <div class="contact-info-item">
+          <div class="contact-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 21s-7-5.3-7-11a7 7 0 1114 0c0 5.7-7 11-7 11z"/><circle cx="12" cy="10" r="2.5"/></svg></div>
+          <div>
+            <h4>Studio location</h4>
+            <p>Patna, India — shipping to homes worldwide.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="reveal">
+        <form id="contactForm" novalidate>
+          <div class="form-grid">
+            <div class="form-field">
+              <label for="ctName">Name <span class="required">*</span></label>
+              <input type="text" id="ctName" name="name" required>
+              <span class="field-error"></span>
+            </div>
+            <div class="form-field">
+              <label for="ctEmail">Email <span class="required">*</span></label>
+              <input type="email" id="ctEmail" name="email" required>
+              <span class="field-error"></span>
+            </div>
+            <div class="form-field full">
+              <label for="ctSubject">Subject <span class="required">*</span></label>
+              <input type="text" id="ctSubject" name="subject" required>
+              <span class="field-error"></span>
+            </div>
+            <div class="form-field full">
+              <label for="ctMessage">Message <span class="required">*</span></label>
+              <textarea id="ctMessage" name="message" required placeholder="Tell us a little about what you need"></textarea>
+              <span class="field-error"></span>
+            </div>
+          </div>
+          <div class="form-submit-row">
+            <button type="submit" class="btn btn-primary">Send message</button>
+          </div>
+        </form>
+
+        <div class="form-success" id="contactSuccess">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg>
+          <h3>Message sent.</h3>
+          <p>Thank you for reaching out — we'll get back to you within 1–2 business days.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div>
+        <div class="footer-logo">Loop <span>&amp;</span> Bloom</div>
+        <p class="footer-tagline">Handmade pieces, stitched with a little more love.</p>
+        <div class="footer-social" style="margin-top:22px;">
+          <a href="#" aria-label="Loop & Bloom on Instagram"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1"/></svg></a>
+          <a href="#" aria-label="Loop & Bloom on Pinterest"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="12" cy="12" r="9"/><path d="M9 17c1-3 1.5-6 1.5-8a2.5 2.5 0 015 .3c0 2-1.5 4-3.5 4"/></svg></a>
+        </div>
+      </div>
+      <div>
+        <div class="footer-heading">Explore</div>
+        <ul class="footer-links">
+          <li><a href="shop.html">Shop</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="custom-orders.html">Custom Orders</a></li>
+          <li><a href="gallery.html">Gallery</a></li>
+        </ul>
+      </div>
+      <div>
+        <div class="footer-heading">Studio</div>
+        <ul class="footer-links">
+          <li><a href="journal.html">Journal</a></li>
+          <li><a href="contact.html">Contact</a></li>
+          <li><a href="shop.html?category=Gifts">Gift Bundles</a></li>
+        </ul>
+      </div>
+      <div>
+        <div class="footer-heading">Get little notes from the studio</div>
+        <form class="newsletter-form">
+          <input type="email" placeholder="Your email address" aria-label="Email address">
+          <button type="submit" aria-label="Subscribe"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M5 12h14M13 6l6 6-6 6"/></svg></button>
+        </form>
+        <p class="footer-note">Occasional emails, unsubscribe anytime.</p>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© <span data-year></span> Loop &amp; Bloom. Handmade with love.</span>
+      <span>Patna · Shipping worldwide</span>
+    </div>
+  </div>
+</footer>
+
+<script src="js/data.js"></script>
+<script src="js/main.js"></script>
+<script src="js/forms.js"></script>
+</body>
+</html>
